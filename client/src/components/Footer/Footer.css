@@ -1,0 +1,15 @@
+@tailwind components;
+
+@layer components {
+  .fwrs-footer {
+    @apply border-t border-slate-800/70 bg-slate-950/80 py-6 text-sm text-slate-300 backdrop-blur;
+  }
+
+  .fwrs-footer-inner {
+    @apply flex flex-col items-center justify-between gap-4 sm:flex-row;
+  }
+
+  .fwrs-footer-links {
+    @apply flex items-center gap-4;
+  }
+}

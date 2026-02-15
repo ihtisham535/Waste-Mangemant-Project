@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  color: #1f2937;
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@layer components {
+  .fwrs-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .fwrs-app {
+    @apply min-h-screen flex flex-col;
+  }
+
+  .fwrs-body {
+    @apply flex flex-1;
+  }
+
+  .fwrs-main {
+    @apply flex-1 px-4 py-8 sm:px-8 lg:px-10;
+  }
+
+  .fwrs-card {
+    @apply rounded-2xl bg-white shadow-lg border border-gray-200;
+  }
+
+  .fwrs-section-title {
+    @apply text-xl sm:text-2xl font-semibold text-gray-900;
+  }
+
+  .fwrs-muted {
+    @apply text-sm text-gray-600;
+  }
+
+  .fwrs-chip {
+    @apply inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-900;
+  }
+
+  .fwrs-primary-btn {
+    @apply inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-600/30 transition hover:bg-blue-700 hover:shadow-lg active:scale-95;
+  }
+
+  .fwrs-ghost-btn {
+    @apply inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:bg-gray-50;
+  }
+
+  .fwrs-link {
+    @apply text-sm font-semibold text-blue-600 transition hover:text-blue-800;
+  }
+
+  .fwrs-grid-2 {
+    @apply grid gap-6 lg:grid-cols-2;
+  }
+
+  .fwrs-grid-3 {
+    @apply grid gap-6 lg:grid-cols-3;
+  }
+
+  .fwrs-gradient-panel {
+    @apply rounded-2xl border border-gray-200 bg-gradient-to-br from-white via-blue-50/30 to-blue-100/20 p-6;
+  }
+
+  .fwrs-field {
+    @apply flex flex-col gap-2;
+  }
+
+  .fwrs-label {
+    @apply text-sm font-semibold text-gray-700;
+  }
+
+  .fwrs-input {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+  }
+
+  .fwrs-input.invalid {
+    @apply border-red-300 bg-red-50/40 focus:border-red-400 focus:ring-red-200;
+  }
+
+  .fwrs-helper {
+    @apply text-xs text-gray-600;
+  }
+
+  .fwrs-badge {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  .fwrs-badge.success {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .fwrs-badge.warning {
+    @apply bg-amber-100 text-amber-700;
+  }
+
+  .fwrs-badge.info {
+    @apply bg-blue-100 text-blue-800;
+  }
+}
+
+@layer utilities {
+  .fwrs-fade-in {
+    animation: fwrsFade 600ms ease-out both;
+  }
+}
+
+@keyframes fwrsFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes adminFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes adminSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.admin-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 0%, transparent 55%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.admin-button:active::after {
+  transform: scale(1.6);
+  opacity: 0.2;
+  transition: none;
+}
+
+/* Custom Animations for PlateVerification */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}

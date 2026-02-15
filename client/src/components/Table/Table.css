@@ -1,0 +1,38 @@
+@tailwind components;
+
+@layer components {
+  .fwrs-table-wrap {
+    @apply overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-950/60;
+  }
+
+  .fwrs-table {
+    @apply w-full border-collapse text-sm text-slate-200;
+  }
+
+  .fwrs-table thead {
+    @apply bg-slate-900/70 text-left text-xs uppercase tracking-wider text-slate-400;
+  }
+
+  .fwrs-table th,
+  .fwrs-table td {
+    @apply px-4 py-3;
+  }
+
+  .fwrs-table tbody tr {
+    @apply border-t border-slate-800/70 transition hover:bg-slate-900/60;
+  }
+
+  .fwrs-table td.align-right,
+  .fwrs-table th.align-right {
+    @apply text-right;
+  }
+
+  .fwrs-table td.align-center,
+  .fwrs-table th.align-center {
+    @apply text-center;
+  }
+
+  .fwrs-table-empty {
+    @apply px-4 py-8 text-center text-sm text-slate-400;
+  }
+}

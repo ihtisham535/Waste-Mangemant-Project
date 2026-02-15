@@ -1,0 +1,67 @@
+@tailwind components;
+
+@layer components {
+  .fwrs-sidebar {
+    @apply hidden w-72 flex-col gap-6 border-r border-slate-800/80 bg-slate-950/90 px-5 py-8 shadow-xl shadow-slate-950/40 backdrop-blur-lg lg:flex;
+  }
+
+  .fwrs-sidebar-card {
+    @apply rounded-3xl border border-slate-800/80 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/30;
+  }
+
+  .fwrs-sidebar-role {
+    @apply text-xs uppercase tracking-[0.25em] text-emerald-200/70;
+  }
+
+  .fwrs-sidebar-title {
+    @apply mt-2 text-lg font-semibold text-white;
+  }
+
+  .fwrs-sidebar-nav {
+    @apply mt-5 flex flex-col gap-2;
+  }
+
+  .fwrs-sidebar-link {
+    @apply flex items-center gap-3 rounded-2xl px-3 py-2 text-sm font-semibold text-slate-300 transition hover:bg-emerald-400/10 hover:text-white;
+  }
+
+  .fwrs-sidebar-link.active {
+    @apply bg-emerald-400/20 text-white shadow-md shadow-emerald-500/20;
+  }
+
+  .fwrs-link-dot {
+    @apply h-2.5 w-2.5 rounded-full bg-emerald-300;
+  }
+
+  .fwrs-sidebar-actions {
+    @apply rounded-3xl border border-emerald-400/20 bg-emerald-500/10 p-5;
+  }
+
+  .fwrs-sidebar-subtitle {
+    @apply text-sm font-semibold text-emerald-100;
+  }
+
+  .fwrs-action-item {
+    @apply mt-4 flex items-center justify-between rounded-2xl bg-slate-900/70 px-4 py-3 shadow-sm shadow-slate-950/30;
+  }
+
+  .fwrs-action-title {
+    @apply text-sm font-semibold text-white;
+  }
+
+  .fwrs-action-meta {
+    @apply text-xs text-slate-400;
+  }
+
+  .fwrs-sidebar-note {
+    @apply rounded-3xl border border-slate-800/80 bg-slate-900/70 p-5 shadow-lg shadow-slate-950/30;
+  }
+
+  .fwrs-note-title {
+    @apply text-sm font-semibold text-white;
+  }
+
+  .fwrs-note-text {
+    @apply mt-2 text-xs text-slate-400;
+  }
+}

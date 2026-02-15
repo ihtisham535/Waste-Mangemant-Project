@@ -1,0 +1,56 @@
+@tailwind components;
+
+@layer components {
+  .auth-page {
+    @apply flex flex-1 items-center justify-center px-4 py-12 sm:px-8;
+  }
+
+  .auth-grid {
+    @apply grid w-full max-w-5xl gap-8 lg:grid-cols-[1.1fr_0.9fr];
+  }
+
+  .auth-card {
+    @apply flex flex-col gap-6 p-8;
+  }
+
+  .auth-title {
+    @apply mt-3 text-3xl font-semibold text-[var(--navy)] sm:text-4xl;
+    font-family: "Playfair Display", serif;
+  }
+
+  .auth-subtitle {
+    @apply mt-2 text-sm text-slate-600;
+  }
+
+  .auth-form {
+    @apply flex flex-col gap-5;
+  }
+
+  .auth-actions {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .auth-aside {
+    @apply flex flex-col gap-6;
+  }
+
+  .auth-aside-title {
+    @apply text-sm font-semibold text-slate-700;
+  }
+
+  .auth-aside-list {
+    @apply mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600;
+  }
+
+  .auth-aside-card {
+    @apply rounded-3xl border border-white/60 bg-white/90 p-6 shadow-[var(--shadow)];
+  }
+
+  .auth-aside-text {
+    @apply mt-2 text-sm text-slate-600;
+  }
+
+  .shop-auth-page {
+    @apply bg-transparent;
+  }
+}

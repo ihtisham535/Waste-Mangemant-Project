@@ -1,0 +1,92 @@
+@tailwind components;
+
+@layer components {
+  .qr-offers-page {
+    @apply flex flex-1 flex-col gap-8 px-4 py-10 sm:px-8;
+  }
+
+  .qr-offers-hero {
+    @apply flex flex-col justify-between gap-6 rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[var(--shadow)] lg:flex-row lg:items-center;
+  }
+
+  .qr-offers-title {
+    @apply mt-3 text-3xl font-semibold text-[var(--navy)] sm:text-4xl;
+    font-family: "Playfair Display", serif;
+  }
+
+  .qr-offers-subtitle {
+    @apply mt-2 max-w-2xl text-sm text-slate-600;
+  }
+
+  .qr-offers-actions {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .qr-shop-section {
+    @apply space-y-4;
+  }
+
+  .qr-shop-grid {
+    @apply grid gap-4 md:grid-cols-3;
+  }
+
+  .qr-shop-card {
+    @apply flex flex-col gap-4 p-5;
+  }
+
+  .qr-shop-name {
+    @apply text-sm font-semibold text-slate-800;
+  }
+
+  .qr-shop-meta {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .qr-item-section {
+    @apply space-y-4;
+  }
+
+  .qr-item-grid {
+    @apply grid gap-4 md:grid-cols-3;
+  }
+
+  .qr-item-card {
+    @apply flex flex-col gap-4 p-5 transition;
+  }
+
+  .qr-item-card.selected {
+    @apply border border-sky-200 bg-sky-50/70 shadow-lg;
+  }
+
+  .qr-item-card.disabled {
+    @apply opacity-60 grayscale;
+  }
+
+  .qr-item-name {
+    @apply text-sm font-semibold text-slate-800;
+  }
+
+  .qr-item-meta {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .qr-item-actions {
+    @apply mt-auto flex items-center justify-between;
+  }
+
+  .qr-item-price {
+    @apply text-lg font-semibold text-[var(--navy)];
+  }
+
+  .qr-selection-summary {
+    @apply p-6;
+  }
+
+  .qr-summary-title {
+    @apply text-sm font-semibold text-slate-600;
+  }
+
+  .qr-summary-item {
+    @apply mt-2 text-lg font-semibold text-[var(--navy)];
+  }
+}

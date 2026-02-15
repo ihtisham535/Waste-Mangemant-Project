@@ -1,0 +1,27 @@
+@tailwind components;
+
+@layer components {
+  .fwrs-alert {
+    @apply rounded-2xl border px-4 py-3 text-sm;
+  }
+
+  .fwrs-alert.info {
+    @apply border-cyan-400/30 bg-cyan-500/10 text-cyan-100;
+  }
+
+  .fwrs-alert.success {
+    @apply border-emerald-400/30 bg-emerald-500/10 text-emerald-100;
+  }
+
+  .fwrs-alert.error {
+    @apply border-rose-400/30 bg-rose-500/10 text-rose-100;
+  }
+
+  .fwrs-alert-title {
+    @apply font-semibold;
+  }
+
+  .fwrs-alert-text {
+    @apply mt-1 text-xs text-slate-300;
+  }
+}

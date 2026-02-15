@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-gray-50 text-gray-900;
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.dark-theme {
+    @apply bg-slate-950 text-slate-100;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Poppins", "Inter", sans-serif;
+  }
+}
+
+@layer components {
+  .admin-shell {
+    @apply min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300;
+  }
+
+  .dark-theme .admin-shell {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  .admin-surface {
+    @apply rounded-2xl border border-gray-200 bg-white shadow-lg shadow-gray-200/50 transition-colors duration-300;
+  }
+
+  .dark-theme .admin-surface {
+    @apply border-slate-800 bg-slate-900 shadow-slate-900/50;
+  }
+
+  .admin-card {
+    @apply admin-surface p-6 transition duration-300 hover:shadow-xl hover:shadow-gray-300/50;
+  }
+
+  .dark-theme .admin-card {
+    @apply hover:shadow-xl hover:shadow-slate-800/50;
+  }
+
+  .admin-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700;
+  }
+
+  .dark-theme .admin-chip {
+    @apply border-emerald-300/30 bg-emerald-500/10 text-emerald-200;
+  }
+
+  .admin-input {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+  }
+
+  .dark-theme .admin-input {
+    @apply border-slate-700 bg-slate-950/60 text-slate-100 focus:border-emerald-300 focus:ring-emerald-400/30;
+  }
+
+  .admin-button {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/30 transition hover:bg-blue-700 hover:shadow-lg active:scale-95;
+  }
+
+  .dark-theme .admin-button {
+    @apply bg-emerald-400 text-slate-900 shadow-emerald-500/30 hover:bg-emerald-300;
+  }
+
+  .admin-button.secondary {
+    @apply border border-gray-300 bg-white text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-400;
+  }
+
+  .dark-theme .admin-button.secondary {
+    @apply border-slate-700 bg-transparent text-slate-200 hover:border-emerald-300 hover:text-white hover:bg-slate-800/50;
+  }
+
+  .admin-button.warning {
+    @apply bg-red-600 text-white shadow-red-600/30 hover:bg-red-700;
+  }
+
+  .admin-table-wrap {
+    @apply mt-6 overflow-hidden rounded-xl border border-gray-200 shadow-sm;
+  }
+
+  .dark-theme .admin-table-wrap {
+    @apply border-slate-800/70;
+  }
+
+  .admin-table {
+    @apply w-full border-collapse text-sm text-gray-700;
+  }
+
+  .dark-theme .admin-table {
+    @apply text-slate-200;
+  }
+
+  .admin-table thead {
+    @apply bg-gray-50 text-left text-xs uppercase tracking-wider text-gray-600 font-semibold;
+  }
+
+  .dark-theme .admin-table thead {
+    @apply bg-slate-900/80 text-slate-400;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    @apply px-6 py-4;
+  }
+
+  .admin-table tbody tr {
+    @apply border-t border-gray-100 transition hover:bg-blue-50/50;
+  }
+
+  .dark-theme .admin-table tbody tr {
+    @apply border-slate-800/70 hover:bg-slate-900/60;
+  }
+
+  .admin-notice {
+    @apply rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900;
+  }
+
+  .dark-theme .admin-notice {
+    @apply border-amber-300/30 bg-amber-500/10 text-amber-200;
+  }
+
+  .admin-notice.success {
+    @apply border-green-200 bg-green-50 text-green-900;
+  }
+
+  .dark-theme .admin-notice.success {
+    @apply border-emerald-300/30 bg-emerald-500/10 text-emerald-200;
+  }
+
+  .admin-notice.error {
+    @apply border-red-200 bg-red-50 text-red-900;
+  }
+
+  .dark-theme .admin-notice.error {
+    @apply border-red-300/30 bg-red-500/10 text-red-200;
+  }
+
+  .admin-fade-in {
+    animation: adminFade 600ms ease-out both;
+  }
+
+  .admin-slide-in {
+    animation: adminSlide 550ms ease-out both;
+  }
+
+  /* Text color utilities for dark mode */
+  .text-adaptive-900 {
+    @apply text-gray-900;
+  }
+
+  .dark-theme .text-adaptive-900 {
+    @apply text-white;
+  }
+
+  .text-adaptive-700 {
+    @apply text-gray-700;
+  }
+
+  .dark-theme .text-adaptive-700 {
+    @apply text-slate-300;
+  }
+
+  .text-adaptive-600 {
+    @apply text-gray-600;
+  }
+
+  .dark-theme .text-adaptive-600 {
+    @apply text-slate-400;
+  }
+
+  .bg-adaptive-header {
+    @apply border-gray-200 bg-white;
+  }
+
+  .dark-theme .bg-adaptive-header {
+    @apply border-slate-800 bg-slate-900;
+  }
+
+  .border-adaptive {
+    @apply border-gray-300;
+  }
+
+  .dark-theme .border-adaptive {
+    @apply border-slate-700;
+  }
+
+  /* Header and Layout styles */
+  .admin-header {
+    @apply border-gray-200 bg-white;
+  }
+
+  .dark-theme .admin-header {
+    @apply border-slate-800 bg-slate-900;
+  }
+
+  .admin-logo {
+    @apply bg-blue-600 text-white;
+  }
+
+  .dark-theme .admin-logo {
+    @apply bg-emerald-400 text-slate-900;
+  }
+
+  .admin-header-text {
+    @apply text-gray-900;
+  }
+
+  .dark-theme .admin-header-text {
+    @apply text-white;
+  }
+
+  .admin-header-subtext {
+    @apply text-gray-500;
+  }
+
+  .dark-theme .admin-header-subtext {
+    @apply text-slate-400;
+  }
+
+  .admin-sidebar {
+    @apply border-gray-200 bg-white;
+  }
+
+  .dark-theme .admin-sidebar {
+    @apply border-slate-800 bg-slate-900;
+  }
+
+  .admin-nav-link {
+    @apply text-gray-700 hover:bg-blue-50 hover:text-blue-700;
+  }
+
+  .dark-theme .admin-nav-link {
+    @apply text-slate-300 hover:bg-slate-800 hover:text-emerald-300;
+  }
+
+  .admin-nav-link-active {
+    @apply bg-blue-600 text-white shadow-sm;
+  }
+
+  .dark-theme .admin-nav-link-active {
+    @apply bg-emerald-400 text-slate-900;
+  }
+
+  .theme-toggle-btn {
+    @apply border-gray-300 text-gray-700 hover:bg-gray-100;
+  }
+
+  .dark-theme .theme-toggle-btn {
+    @apply border-slate-700 text-slate-300 hover:bg-slate-800;
+  }
+
+  .sidebar-toggle-btn {
+    @apply border-gray-300 text-gray-700 hover:bg-gray-100;
+  }
+
+  .dark-theme .sidebar-toggle-btn {
+    @apply border-slate-700 text-slate-300 hover:bg-slate-800;
+  }
+
+  /* Shopkeeper page specific */
+  .form-heading {
+    @apply text-gray-900;
+  }
+
+  .dark-theme .form-heading {
+    @apply text-white;
+  }
+
+  .form-label {
+    @apply text-gray-700;
+  }
+
+  .dark-theme .form-label {
+    @apply text-slate-200;
+  }
+
+  .table-heading {
+    @apply text-gray-900;
+  }
+
+  .dark-theme .table-heading {
+    @apply text-white;
+  }
+
+  .table-subheading {
+    @apply text-gray-600;
+  }
+
+  .dark-theme .table-subheading {
+    @apply text-slate-400;
+  }
+
+  .table-cell-text {
+    @apply text-gray-700;
+  }
+
+  .dark-theme .table-cell-text {
+    @apply text-slate-300;
+  }
+
+  .table-cell-emphasis {
+    @apply text-gray-900;
+  }
+
+  .dark-theme .table-cell-emphasis {
+    @apply text-white;
+  }
+
+  .status-badge-active {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .dark-theme .status-badge-active {
+    @apply bg-emerald-500/15 text-emerald-200;
+  }
+
+  .status-badge-inactive {
+    @apply bg-gray-200 text-gray-700;
+  }
+
+  .dark-theme .status-badge-inactive {
+    @apply bg-slate-800 text-slate-300;
+  }
+
+  .count-badge {
+    @apply border-blue-300 bg-blue-100 text-blue-700;
+  }
+
+  .dark-theme .count-badge {
+    @apply border-emerald-300/30 bg-emerald-500/10 text-emerald-200;
+  }
+
+  .admin-chip-text {
+    @apply text-blue-600;
+  }
+
+  .dark-theme .admin-chip-text {
+    @apply text-emerald-200;
+  }
+}
+
+.admin-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.admin-button:active::after {
+  transform: scale(1.6);
+  opacity: 0.4;
+  transition: none;
+}
+
+@keyframes adminFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes adminSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Login Page Styles */
+.login-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-panel {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 420px;
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+@media (max-width: 768px) {
+  .login-shell {
+    padding: 1rem;
+  }
+
+  .login-panel {
+    padding: 2rem;
+  }
+}
