@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Alert from "../../components/Alert/Alert.jsx";
@@ -10,18 +10,51 @@ import "./QRConfirmation.css";
 const QRConfirmation = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { scan, restaurant } = location.state || {};
+  const [scanData, setScanData] = useState(null);
+  const [restaurantData, setRestaurantData] = useState(null);
 
   useEffect(() => {
-    // Redirect if no scan data
-    if (!scan) {
-      navigate("/qr/offers");
+    // Try to get data from navigation state first
+    if (location.state?.scan) {
+      setScanData(location.state.scan);
+      setRestaurantData(location.state.restaurant);
+      return;
     }
-  }, [scan, navigate]);
 
-  if (!scan) {
+    // If no state, try to load from localStorage
+    const savedReward = localStorage.getItem('bonyadReward');
+    if (savedReward) {
+      try {
+        const rewardData = JSON.parse(savedReward);
+        const expiryTime = new Date(rewardData.expiresAt);
+        const now = new Date();
+        
+        // Check if reward is still valid
+        if (expiryTime > now) {
+          setScanData(rewardData.scan);
+          setRestaurantData(rewardData.restaurant);
+        } else {
+          // Reward expired, clear and redirect
+          localStorage.removeItem('bonyadReward');
+          navigate("/qr/verify");
+        }
+      } catch (err) {
+        console.error('Error loading saved reward:', err);
+        localStorage.removeItem('bonyadReward');
+        navigate("/qr/verify");
+      }
+    } else {
+      // No saved data, redirect to verify page
+      navigate("/qr/verify");
+    }
+  }, [location.state, navigate]);
+
+  if (!scanData) {
     return null;
   }
+
+  const scan = scanData;
+  const restaurant = restaurantData;
 
   return (
     <div className="fwrs-app">

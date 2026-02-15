@@ -18,9 +18,12 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <nav className="navbar">
-      <div className="brand">
-        <span>FWRS</span>
-        <strong>Shopkeeper Panel</strong>
+      <div className="brand-container">
+        <img src="/logo.jpeg" alt="Bonyad logo" className="brand-logo" />
+        <div className="brand">
+          <span>Bonyad</span>
+          <strong>Shopkeeper Panel</strong>
+        </div>
       </div>
       <div className="nav-links">
         <NavLink end to="/" className="nav-link">
@@ -28,6 +31,9 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         </NavLink>
         <NavLink to="/items" className="nav-link">
           Items
+        </NavLink>
+        <NavLink to="/help-center" className="nav-link">
+          Help
         </NavLink>
       </div>
       <div className="nav-actions">

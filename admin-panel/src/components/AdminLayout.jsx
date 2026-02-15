@@ -53,9 +53,7 @@ const AdminLayout = () => {
             >
               {sidebarOpen ? "×" : "≡"}
             </button>
-            <div className="flex h-11 w-11 items-center justify-center rounded-lg text-lg font-bold admin-logo">
-              B
-            </div>
+            <img src="/logo.jpeg" alt="Bonyad logo" className="h-11 w-11 rounded-lg object-cover" />
             <div>
               <p className="text-sm font-bold admin-header-text">Bonyad</p>
               <p className="text-xs admin-header-subtext">Admin Panel</p>

@@ -2,6 +2,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import BonyadLanding from "./pages/Landing/BonyadLanding.jsx";
 import AboutUs from "./pages/Landing/AboutUs.jsx";
 import ContactUs from "./pages/Landing/ContactUs.jsx";
+import TermsAndConditions from "./pages/Landing/TermsAndConditions.jsx";
+import PrivacyPolicy from "./pages/Landing/PrivacyPolicy.jsx";
 import AdminRoutes from "./routes/adminRoutes.jsx";
 import QRConfirmation from "./pages/QR/QRConfirmation.jsx";
 import QRDisplay from "./pages/QR/QRDisplay.jsx";
@@ -19,6 +21,8 @@ const App = () => (
     <Route path="/home" element={<BonyadLanding />} />
     <Route path="/about" element={<AboutUs />} />
     <Route path="/contact" element={<ContactUs />} />
+    <Route path="/terms" element={<TermsAndConditions />} />
+    <Route path="/privacy" element={<PrivacyPolicy />} />
     <Route path="/admin/*" element={<AdminRoutes />} />
     <Route path="/shopkeeper" element={<ShopkeeperLayout />}>
       <Route index element={<Navigate to="dashboard" replace />} />

@@ -158,12 +158,14 @@ const ItemsPage = () => {
                 <td>{item.quantityAvailable}</td>
                 <td>{item.discountActive ? "Yes" : "No"}</td>
                 <td>
-                  <button className="button secondary" type="button" onClick={() => startEdit(item)}>
-                    Edit
-                  </button>
-                  <button className="button" type="button" onClick={() => handleDelete(item._id)}>
-                    Delete
-                  </button>
+                  <div style={{ display: "flex", gap: "0.5rem" }}>
+                    <button className="button secondary" type="button" onClick={() => startEdit(item)}>
+                      Edit
+                    </button>
+                    <button className="button" type="button" onClick={() => handleDelete(item._id)}>
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

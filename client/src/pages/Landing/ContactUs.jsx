@@ -102,21 +102,6 @@ const ContactUs = () => {
               Contact Us
             </button>
           </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => navigate("/admin/login")}
-              className="rounded-full border border-emerald-300/40 px-4 py-2 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200 hover:text-white"
-            >
-              Admin Login
-            </button>
-            <button
-              onClick={() => navigate("/shopkeeper/login")}
-              className="rounded-full bg-amber-300 px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg shadow-amber-500/30 transition hover:-translate-y-0.5"
-            >
-              Shopkeeper Login
-            </button>
-          </div>
         </nav>
       </header>
 

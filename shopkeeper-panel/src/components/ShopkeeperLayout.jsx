@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 
 const ShopkeeperLayout = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -27,6 +28,7 @@ const ShopkeeperLayout = () => {
       <main className="main">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 };

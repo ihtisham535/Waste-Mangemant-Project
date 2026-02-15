@@ -144,6 +144,19 @@ const QRDiscountListing = () => {
         throw new Error(data.message || "Failed to claim reward");
       }
 
+      // Save reward data to localStorage with 24-hour expiry
+      const expiryTime = new Date();
+      expiryTime.setHours(expiryTime.getHours() + 24);
+      
+      const rewardData = {
+        scan: data.scan,
+        restaurant: restaurant,
+        expiresAt: expiryTime.toISOString(),
+        claimedAt: new Date().toISOString()
+      };
+      
+      localStorage.setItem('bonyadReward', JSON.stringify(rewardData));
+
       // Navigate to confirmation page with scan data
       navigate("/qr/confirm", { 
         state: { 
